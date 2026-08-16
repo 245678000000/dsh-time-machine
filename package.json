@@ -1,0 +1,89 @@
+{
+  "name": "dsh-time-machine",
+  "version": "0.1.0",
+  "description": "Checkpoint, rollback, fork and replay for DeepSeek Harness agents. Undo agent mistakes, not just conversations.",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "agent",
+    "checkpoint",
+    "rollback",
+    "time-machine",
+    "session-fork",
+    "workspace-restore"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/245678000000/dsh-time-machine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/245678000000/dsh-time-machine/issues"
+  },
+  "homepage": "https://github.com/245678000000/dsh-time-machine#readme",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./plugin": {
+      "types": "./dist/plugin.d.ts",
+      "default": "./dist/plugin.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dsh-time-machine": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src tests examples --max-warnings=0",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "demo:known-good": "tsx examples/demo-known-good.ts",
+    "demo:email": "tsx examples/demo-irreversible-email.ts",
+    "demo:user-work": "tsx examples/demo-preserve-user-work.ts",
+    "bench": "tsx examples/bench.ts",
+    "prepublishOnly": "pnpm typecheck && pnpm lint && pnpm test && pnpm build"
+  },
+
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=0.1.0-rc.0",
+    "@deepseek-ai/dsh-tools": ">=0.1.0-rc.0",
+    "@deepseek-ai/dsh-session": ">=0.1.0-rc.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-session": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/node": "^22.17.0",
+    "eslint": "^9.33.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.1",
+    "vitest": "^3.2.4"
+  }
+}
