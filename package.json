@@ -1,7 +1,7 @@
 {
   "name": "dsh-time-machine",
   "version": "0.1.0",
-  "description": "Checkpoint, rollback, fork and replay for DeepSeek Harness agents. Undo agent mistakes, not just conversations.",
+  "description": "撤销 Agent 搞坏的工程，不是聊天记录。DeepSeek Harness 工作区检查点 / 回滚 / 会话分叉。",
   "keywords": [
     "deepseek",
     "harness",
